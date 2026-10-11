@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   root: '.',
-  base: './',
+  base: mode === 'production' ? '/stacker/' : './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -21,4 +21,4 @@ export default defineConfig({
   esbuild: {
     target: 'es2020',
   },
-});
+}));
